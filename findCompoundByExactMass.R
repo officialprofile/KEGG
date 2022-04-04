@@ -4,7 +4,7 @@ findCompoundByExactMass <- function(exact_mass){
                                pattern = 'replace', replacement = as.character(exact_mass))
   raw   <- readLines(link)
   if (raw == ''){
-    return(list('mass' = exact_mass, 'compound' = NA, names = c()))
+    return(list('mass' = exact_mass, 'compound' = NA, 'names' = c()))
   }
   else{
     compound <- stringr::str_split(raw, pattern = '\t', simplify = T)[1]
@@ -27,7 +27,7 @@ findCompoundByExactMass <- function(exact_mass){
       }
     }
   }
-  return(list('mass' = exact_mass, 'compound' = compound, names = names))
+  return(list('mass' = exact_mass, 'compound' = compound, 'names' = names))
 }
 
 # Example
